@@ -8,7 +8,6 @@ st.set_page_config(
     layout="centered"
 )
 
-# Custom CSS for professional polished look
 st.markdown("""
 <style>
     .main-header {
@@ -47,7 +46,6 @@ def go_home():
 def go_about():
     st.session_state.page = 'about'
 
-# --- Top Navigation Bar ---
 col1, col2 = st.columns([6, 1])
 
 with col1:
@@ -60,7 +58,6 @@ with col2:
     if st.session_state.page == 'home':
         st.button("ℹ️ About", on_click=go_about, help="Learn more about this project")
 
-# --- Content ---
 
 if st.session_state.page == 'home':
     st.markdown("### AI-Powered User Story Estimation")
@@ -74,7 +71,6 @@ if st.session_state.page == 'home':
         else:
             with st.spinner("Analyzing complexity..."):
                 try:
-                    # Assuming backend runs on local port 8000
                     response = requests.post("http://localhost:8000/predict", json={"text": story_text})
                     
                     if response.status_code == 200:
@@ -84,7 +80,6 @@ if st.session_state.page == 'home':
                         confidence = data['confidence']
                         raw = data['raw_prediction']
                         
-                        # Display Result in a Card
                         st.markdown(f"""
                         <div class="result-card">
                             <h3 style="margin-top:0; color: #2563EB;">Estimation Result</h3>
@@ -134,3 +129,4 @@ elif st.session_state.page == 'about':
         """)
 
 st.markdown("---")
+
