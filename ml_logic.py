@@ -14,12 +14,7 @@ MODEL_PATH = os.path.join(BASE_DIR, "ml_artifacts", "model.joblib")
 VECTORIZER_PATH = os.path.join(BASE_DIR, "ml_artifacts", "vectorizer.joblib")
 
 def clean_text(text: str) -> str:
-    """
-    Cleans the input text by:
-    1. Lowercasing
-    2. Removing special characters and numbers
-    3. removing extra whitespace
-    """
+    
     if not text:
         return ""
     
@@ -95,5 +90,6 @@ class StoryPointEstimator:
             "raw_prediction": round(raw_pred, 2),
             "confidence": confidence
         }
+
 
 
