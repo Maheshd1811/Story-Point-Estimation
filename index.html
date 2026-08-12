@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Point Estimator Pro</title>
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1 class="main-header">✨ Agile Estimation AI ✨</h1>
+        <h3 class="sub-header">Instantly predict story points using Machine Learning</h3>
+
+        <div class="glass-card input-section">
+            <h3 class="card-title">📝 Enter User Story</h3>
+            <form id="estimation-form">
+                <textarea id="story-input" class="story-textarea" placeholder="As a [role], I want [feature] so that [benefit]..." required></textarea>
+                <button type="submit" class="submit-button" id="submit-btn">🚀 Estimate Points</button>
+            </form>
+        </div>
+
+        <div id="loading-state" class="hidden">
+            <div class="spinner"></div>
+            <p>Connecting to Predictor Model...</p>
+        </div>
+        
+        <div id="error-state" class="hidden glass-card error-card">
+            <p id="error-message">🔌 Could not connect to backend. Please ensure the backend server is running on port 8000.</p>
+        </div>
+
+        <div id="result-state" class="hidden glass-card result-card">
+            <h2 class="result-title">Estimation Complete! 🎉</h2>
+            <div id="result-points" class="result-points">N/A</div>
+            <div class="result-label">Recommended Story Points</div>
+            <p class="confidence-text">Confidence: <strong id="result-confidence">High</strong></p>
+        </div>
+
+        <!-- How it works using native HTML details/summary (no JS needed) -->
+        <details class="glass-card expander">
+            <summary class="expander-header">🛠️ How it Works & Tech Stack</summary>
+            <div class="expander-content">
+                <p>This tool replaces guesswork with data-driven objectivity. It uses a trained Machine Learning model to evaluate the complexity of your user stories.</p>
+                
+                <h4>🚀 Step-by-Step Process:</h4>
+                <ol>
+                    <li><strong>Input:</strong> You write a user story.</li>
+                    <li><strong>NLP Pipeline:</strong> The text is cleaned, tokenized, and converted to numbers (TF-IDF).</li>
+                    <li><strong>Prediction:</strong> A robust Random Forest model predicts a continuous complexity score based on historical data.</li>
+                    <li><strong>Fibonacci Mapping:</strong> The score is snapped to the nearest Agile standard sequence number (1, 2, 3, 5, 8, 13...).</li>
+                </ol>
+                
+                <h4>💻 Tech Stack:</h4>
+                <ul>
+                    <li><strong>Frontend:</strong> HTML/CSS (Vanilla JS for API only)</li>
+                    <li><strong>Backend:</strong> FastAPI</li>
+                    <li><strong>ML Model:</strong> Random Forest</li>
+                </ul>
+            </div>
+        </details>
+    </div>
+
+    <!-- Minimal JS for fetching JSON -->
+    <script src="script.js"></script>
+</body>
+</html>
