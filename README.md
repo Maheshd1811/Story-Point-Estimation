@@ -13,17 +13,3 @@ This project provides an AI-based estimation for Agile User Stories.
    pip install -r requirements.txt
    ```
 
-## Running
-1. **Start the Backend**:
-   Open a terminal and run:
-   ```bash
-   python backend.py
-   ```
-   The backend will start at `http://localhost:8000`.
-
-2. **Start the Frontend**:
-   Open a **new** terminal and run:
-   ```bash
-   streamlit run frontend.py
-   ```
-   The frontend will open in your browser.
